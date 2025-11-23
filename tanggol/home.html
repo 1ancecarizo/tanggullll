@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANGGOL</title>
+   <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">TAN<span>GGOL</span></div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Download App</a></li>
+                    <li><a href="rescue.php">Contact us</a></li>
+                    <li><a href="" class="sign-up-btn">Sign up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>We have Bagyong Tino — Supertyphoon</h1>
+            <p>Bagyong Tino (Supertyphoon) is affecting Legazpi City. Follow evacuation orders and stay safe.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+        <main class="flood-dashboard">
+            <div class="flood-row">
+                <!-- Left Sidebar -->
+                <aside class="flood-sidebar">
+                    <div class="flood-sidebar-section flood-sidebar-header">
+                        <div class="flood-sidebar-title">Bagyong Tino — Supertyphoon Alert: Legazpi City</div>
+                        <div class="flood-sidebar-info">
+                            <div>Waterbody: <b>Yawa River</b></div>
+                            <div>Gauge: <b>LGZP1</b></div>
+                            <div>Status: <b style='color:#e53935;'>Supertyphoon (Bagyong Tino) — Major Flooding</b></div>
+                            <div>Location: Legazpi City, Albay</div>
+                            <div>Observed Time: 2025-11-22 10:00:00</div>
+                            <div style="margin-top:8px;"><a href="#" class="flood-link">Typhoon Details</a></div>
+                            <div><a href="evacuation.php" class="flood-link">Evacuation Centers</a></div>
+                        </div>
+                        <div class="flood-sidebar-update" style="color:#e53935;">Last update: Typhoon signal active</div>
+                    </div>
+                    <div class="flood-sidebar-section flood-sidebar-map">
+                        <a href="evacuation.php">
+                                <img src="photos/maps.png" alt="Legazpi Map" style="width:100%;">
+                        </a>
+                        <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px;align-items:stretch;">
+                            <button id="homeMarkSafe" style="background:#1976d2;border:none;padding:16px 28px;;cursor:pointer;color:#fff;font-size:18px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,0.3);width:100%;">I'm Safe</button>
+                            <span id="homeSafeMsg" style="color:#ddd;font-size:0.95rem"></span>
+                        </div>
+
+                    </div>
+                </aside>
+                <!-- Main Map and Bottom Bar -->
+                <section class="flood-main">
+                    <div class="flood-main-map">
+                        <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://embed.windy.com/embed2.html?lat=13.1391&lon=123.7438&zoom=11&level=surface&overlay=wind&product=ecmwf"
+                                frameborder="0"
+                                allowfullscreen
+                                title="Typhoon Map - Legazpi City"
+                                style="border-radius: 0; background: #181c24; width:100%; height:100%; border: none;"
+                            ></iframe>
+                    </div>
+                    <div class="flood-main-bottom">
+                        <div class="flood-bar-chart-card">
+                            <canvas id="floodBarChart" width="340" height="160"></canvas>
+                        </div>
+                        <div class="flood-bottom-card flood-bottom-major">
+                            <div class="flood-bottom-title">NWS Major Status Gauges in Map View</div>
+                            <div class="flood-bottom-value">22</div>
+                            <div class="flood-bottom-update">Last update: a few seconds ago</div>
+                        </div>
+                        <div class="flood-bottom-card flood-bottom-pie">
+                            <div class="flood-bottom-title">NWS Obs River Stages in Map View</div>
+                            <canvas id="floodPieChart" width="120" height="120"></canvas>
+                            <div class="flood-bottom-update">Last update: a few seconds ago</div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Right Sidebar -->
+                <aside class="flood-rightbar">
+                    <div class="flood-rightbar-section flood-rightbar-legend">
+                        <div class="flood-rightbar-title">NWS Observed River Stages</div>
+                        <ul class="flood-legend-list">
+                            <li><span class="flood-legend-dot flood-dot-major"></span> Major Flooding</li>
+                            <li><span class="flood-legend-dot flood-dot-moderate"></span> Moderate</li>
+                            <li><span class="flood-legend-dot flood-dot-minor"></span> Minor Flooding</li>
+                            <li><span class="flood-legend-dot flood-dot-near"></span> Near Flood</li>
+                            <li><span class="flood-legend-dot flood-dot-none"></span> No Flooding</li>
+                            <li><span class="flood-legend-dot flood-dot-category"></span> Flood Category</li>
+                        </ul>
+                    </div>
+                    <div class="flood-rightbar-section flood-rightbar-list">
+                        <div class="flood-rightbar-title">Legazpi City - Current Status</div>
+                        <div class="flood-gauge-list">
+                            <div class="flood-gauge-item"><b>Yawa River</b><br>Status: Supertyphoon (Bagyong Tino) — Major Flooding<br>Obs Time: 2025-11-22 10:00:00</div>
+                            <div class="flood-gauge-item"><b>Evacuation Centers</b><br>Status: Open<br>Capacity: 2,000+</div>
+                            <div class="flood-gauge-item"><b>Power Outage</b><br>Status: Reported in several barangays</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Dark Weather</h3>
+                    <p>Providing accurate weather forecasts worldwide since 2023. Our mission is to help people plan their activities with confidence.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#" style="color: white; text-decoration: none;">Download App</a></li>
+                        <li><a href="#" style="color: white; text-decoration: none;">Contact Us</a></li>
+                        <li><a href="#" style="color: white; text-decoration: none;">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@darkweather.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dark Weather. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/home.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        // Flood Dashboard Bar Chart
+        new Chart(document.getElementById('floodBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ['action', 'major', 'minor', 'moderate'],
+                datasets: [{
+                    data: [243, 22, 146, 55],
+                    backgroundColor: ['#ffe600', '#a259e6', '#ff6f00', '#e53935'],
+                    borderRadius: 6,
+                    barPercentage: 0.7
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                responsive: false,
+                scales: {
+                    x: { ticks: { color: '#fff' }, grid: { color: '#333' } },
+                    y: { ticks: { color: '#fff' }, grid: { color: '#333' } }
+                }
+            }
+        });
+        // Flood Dashboard Pie Chart
+        new Chart(document.getElementById('floodPieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['action', 'major', 'minor', 'moderate'],
+                datasets: [{
+                    data: [243, 22, 146, 55],
+                    backgroundColor: ['#ffe600', '#a259e6', '#ff6f00', '#e53935']
+                }]
+            },
+            options: {
+                plugins: { legend: { display: false } },
+                responsive: false
+            }
+        });
+        </script>
+   
+</body>
+</html>
